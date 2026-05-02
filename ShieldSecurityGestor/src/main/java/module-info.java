@@ -5,6 +5,7 @@ module org.example.shieldsecuritygestor {
     requires com.google.gson;
     requires org.json;
     requires java.sql;
+    requires org.mariadb.jdbc;
 
 
     opens org.example.shieldsecuritygestor to javafx.fxml;

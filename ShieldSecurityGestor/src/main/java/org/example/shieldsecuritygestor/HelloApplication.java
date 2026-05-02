@@ -4,6 +4,10 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.example.shieldsecuritygestor.dao.UsuarioDAO;
+import org.example.shieldsecuritygestor.database.DBConnection;
+import org.example.shieldsecuritygestor.model.usuario.ClienteUsuario;
+import org.example.shieldsecuritygestor.model.usuario.Usuario;
 
 import java.io.IOException;
 
@@ -18,6 +22,10 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
+//        DBConnection.getConnection();
+
+//        UsuarioDAO clienteDAO = new UsuarioDAO();
+//        clienteDAO.crearClientePS(new ClienteUsuario("Tester2", "TesterApellido2", "tester2@gmail.com", "Cliente232", "A1231233", "Monster"));
         launch();
     }
 }

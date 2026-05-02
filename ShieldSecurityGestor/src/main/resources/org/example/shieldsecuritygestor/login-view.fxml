@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -43,6 +44,20 @@
             <TextField fx:id="passwordField" />
          </children>
       </VBox>
-      <Button fx:id="btnLogin" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Iniciar sesión" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <Button fx:id="btnLogin" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Iniciar sesión" GridPane.columnIndex="1" GridPane.rowIndex="3">
+         <GridPane.margin>
+            <Insets left="10.0" />
+         </GridPane.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="btnRegistroCliente" maxWidth="1.7976931348623157E308" mnemonicParsing="false" opacity="0.0" text="Registro Cliente" GridPane.rowIndex="3">
+         <GridPane.margin>
+            <Insets right="10.0" />
+         </GridPane.margin>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </Button>
    </children>
 </GridPane>
