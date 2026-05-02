@@ -22,10 +22,6 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
-//        DBConnection.getConnection();
-
-//        UsuarioDAO clienteDAO = new UsuarioDAO();
-//        clienteDAO.crearClientePS(new ClienteUsuario("Tester2", "TesterApellido2", "tester2@gmail.com", "Cliente232", "A1231233", "Monster"));
         launch();
     }
 }
