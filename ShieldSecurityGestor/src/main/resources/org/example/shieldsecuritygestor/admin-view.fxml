@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.shieldsecuritygestor.controller.LoginController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.shieldsecuritygestor.controller.AdminViewController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="497.0" minWidth="10.0" prefWidth="234.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="814.0" minWidth="10.0" prefWidth="770.0" />
@@ -25,12 +25,14 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <padding>
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
    </padding>
    <children>
-      <Button fx:id="btnShowPlan" layoutX="20.0" layoutY="300.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Planes Contratados" GridPane.rowIndex="1">
+      <Button fx:id="btnShowClientes" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Clientes" GridPane.rowIndex="1">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -38,7 +40,7 @@
             <Font name="Microsoft JhengHei UI" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnShowFacturas" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Facturas" GridPane.rowIndex="2">
+      <Button fx:id="btnShowServicios" layoutX="20.0" layoutY="300.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Servicios" GridPane.rowIndex="2">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -46,7 +48,7 @@
             <Font name="Microsoft JhengHei UI" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnShowIncidencias" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Incidencias" GridPane.rowIndex="3">
+      <Button fx:id="btnShowFacturas" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Facturas" GridPane.rowIndex="3">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -54,7 +56,15 @@
             <Font name="Microsoft JhengHei UI" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnShowIncidencias1" layoutX="20.0" layoutY="444.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Cerrar Sesión" GridPane.rowIndex="4">
+      <Button fx:id="btnShowIncidencias" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Incidencias" GridPane.rowIndex="4">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Microsoft JhengHei UI" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnLogout" layoutX="20.0" layoutY="444.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Cerrar Sesión" GridPane.rowIndex="5" GridPane.rowSpan="2147483647">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -91,7 +101,7 @@
                         <Font size="24.0" />
                      </font>
                   </Text>
-                  <Text layoutX="10.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cliente">
+                  <Text layoutX="10.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Administrador">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -100,10 +110,27 @@
             </VBox>
          </children>
       </HBox>
-      <ListView fx:id="contentSection" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="2147483647">
+      <ListView fx:id="contentSection" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.rowSpan="2147483647">
          <GridPane.margin>
             <Insets left="10.0" />
          </GridPane.margin>
       </ListView>
+      <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <children>
+            <Button fx:id="btnDeleteUser" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Eliminar usuario">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnAddUser" mnemonicParsing="false" text="Añadir usuario">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <GridPane.margin>
+            <Insets bottom="10.0" />
+         </GridPane.margin>
+      </HBox>
    </children>
 </GridPane>

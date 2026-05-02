@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.shieldsecuritygestor.controller.LoginController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.shieldsecuritygestor.controller.MasterViewController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="497.0" minWidth="10.0" prefWidth="234.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="814.0" minWidth="10.0" prefWidth="770.0" />
@@ -73,7 +73,7 @@
             <Font name="Microsoft JhengHei UI" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnShowIncidencias1" layoutX="20.0" layoutY="444.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Cerrar Sesión" GridPane.rowIndex="6" GridPane.rowSpan="2147483647">
+      <Button fx:id="btnLogout" layoutX="20.0" layoutY="444.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Cerrar Sesión" GridPane.rowIndex="6" GridPane.rowSpan="2147483647">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -129,12 +129,12 @@
             <Insets bottom="10.0" left="10.0" />
          </GridPane.margin>
          <children>
-            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Eliminar usuario">
+            <Button fx:id="btnDeleteUser" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Eliminar usuario">
                <HBox.margin>
                   <Insets right="5.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" text="Añadir usuario">
+            <Button fx:id="btnAddUser" mnemonicParsing="false" text="Añadir usuario">
                <HBox.margin>
                   <Insets left="5.0" />
                </HBox.margin>
