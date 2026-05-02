@@ -3,6 +3,7 @@ package org.example.shieldsecuritygestor.controller;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -13,6 +14,7 @@ import org.example.shieldsecuritygestor.model.usuario.Administrador;
 import org.example.shieldsecuritygestor.model.usuario.Master;
 
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,14 +47,48 @@ public void actions(){
             String emailUser = emailField.getText().trim();
             String passwordUser = passwordField.getText().trim();
 
-            Usuario encontrado = LoginDAO.login(emailUser, passwordUser);
+            Usuario encontrado = loginDAO.login(emailUser, passwordUser);
 
             if(encontrado != null){
-                switch (encontrado.getPerfil()){
-                    case "MASTER" -> System.out.println("Master");
-                    case "ADMINISTRADOR" -> System.out.println("Administrador");
-                    case "CLIENTE" -> System.out.println("Cliente");
+
+                Stage currentView = new Stage();
+
+                try{
+
+                    FXMLLoader fxmlLoader;
+                    switch (encontrado.getPerfil()) {
+                        case "MASTER" -> {
+                            fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/shieldsecuritygestor/master-view.fxml"));
+                            currentView.setTitle("ShieldSecurity | Panel Master");
+                            currentView.setScene(new Scene(fxmlLoader.load()));
+                            currentView.show();
+                            ((Stage) btnLogin.getScene().getWindow()).close();
+                        }
+                        case "ADMINISTRADOR" -> {
+                            fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/shieldsecuritygestor/admin-view.fxml"));
+                            currentView.setTitle("ShieldSecurity | Panel Administrador");
+                            currentView.setScene(new Scene(fxmlLoader.load()));
+                            currentView.show();
+                            ((Stage) btnLogin.getScene().getWindow()).close();
+                        }
+                        case "CLIENTE" -> {
+                            fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/shieldsecuritygestor/client-view.fxml"));
+                            currentView.setTitle("ShieldSecurity | Panel del Cliente");
+                            currentView.setScene(new Scene(fxmlLoader.load()));
+                            currentView.show();
+                            ((Stage) btnLogin.getScene().getWindow()).close();
+                        }
+                    }
+
+
+                } catch (IOException e){
+                    System.out.println("Error en la ruta");
+                    System.out.println(e.getMessage());
+
                 }
+
+
+
             } else {
                 System.out.println("Datos incorrectos");
             }
