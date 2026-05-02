@@ -18,4 +18,11 @@ public interface SchemaDB {
     String COL_NOMBRE_EMPRESA="nombre_empresa";
     String COL_ID_ROL = "id_rol";
     String COL_ACTIVO = "activo";
+    String TABLE_CONTRATO = "contrato";
+    String TABLE_FACTURA = "factura";
+    String COL_ID_CONTRATO = "id_contrato";
+    String TABLE_PLAN = "plan";
+    String COL_NOMBRE_PLAN = "nombre_plan";
+
+
 }

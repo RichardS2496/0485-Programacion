@@ -61,6 +61,8 @@ public void actions(){
                             fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/shieldsecuritygestor/master-view.fxml"));
                             currentView.setTitle("ShieldSecurity | Panel Master");
                             currentView.setScene(new Scene(fxmlLoader.load()));
+                            ClientViewController controller = fxmlLoader.getController();
+                            controller.setUsuario(encontrado);
                             currentView.show();
                             ((Stage) btnLogin.getScene().getWindow()).close();
                         }
@@ -68,6 +70,8 @@ public void actions(){
                             fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/shieldsecuritygestor/admin-view.fxml"));
                             currentView.setTitle("ShieldSecurity | Panel Administrador");
                             currentView.setScene(new Scene(fxmlLoader.load()));
+                            ClientViewController controller = fxmlLoader.getController();
+                            controller.setUsuario(encontrado);
                             currentView.show();
                             ((Stage) btnLogin.getScene().getWindow()).close();
                         }
@@ -75,6 +79,8 @@ public void actions(){
                             fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/shieldsecuritygestor/client-view.fxml"));
                             currentView.setTitle("ShieldSecurity | Panel del Cliente");
                             currentView.setScene(new Scene(fxmlLoader.load()));
+                            ClientViewController controller = fxmlLoader.getController();
+                            controller.setUsuario(encontrado);
                             currentView.show();
                             ((Stage) btnLogin.getScene().getWindow()).close();
                         }

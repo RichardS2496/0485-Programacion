@@ -21,7 +21,7 @@ public class LoginDAO {
 
     public static Usuario login(String user, String password){
 
-        String query = "SELECT id_rol FROM usuario WHERE email=? AND password=?";
+        String query = "SELECT id_usuario, nombre_usuario, id_rol FROM usuario WHERE email=? AND password=?";
 
         try {
             PreparedStatement ps = connection.prepareStatement(query);
@@ -32,12 +32,24 @@ public class LoginDAO {
 
             if(rs.next()){
                 int rol = rs.getInt("id_rol");
+                int id = rs.getInt("id_usuario");
+
+                Usuario usuario = null;
+
 
                 switch (rol){
-                    case 1 : return new Master();
-                    case 2 : return new Administrador();
-                    case 3 : return new ClienteUsuario();
+                    case 1 -> usuario = new Master();
+                    case 2 -> usuario = new Administrador();
+                    case 3 -> usuario = new ClienteUsuario();
                 }
+
+                if (usuario != null){
+                    usuario.setId(id);
+                    usuario.setCorreo(user);
+                    usuario.setNombre(rs.getString("nombre_usuario"));
+                    return usuario;
+                }
+
             }
 
 

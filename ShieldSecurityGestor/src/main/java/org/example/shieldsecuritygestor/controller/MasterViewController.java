@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
+import org.example.shieldsecuritygestor.model.usuario.Usuario;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -41,8 +42,17 @@ public class MasterViewController implements Initializable {
     @FXML
     private ListView<?> contentSection;
 
+    private Usuario usuario;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+        UserName.setText((usuario.getNombre()));
+    }
+
 }
