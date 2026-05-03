@@ -6,7 +6,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
 import org.example.shieldsecuritygestor.dao.ContratoDAO;
+import org.example.shieldsecuritygestor.dao.FacturaDAO;
+
 import org.example.shieldsecuritygestor.model.Contrato;
+import org.example.shieldsecuritygestor.model.Factura;
 import org.example.shieldsecuritygestor.model.usuario.Usuario;
 
 import java.net.URL;
@@ -36,6 +39,8 @@ public class ClientViewController implements Initializable {
 
     private Usuario usuario;
     private ContratoDAO contratoDAO = new ContratoDAO();
+    private FacturaDAO facturaDAO = new FacturaDAO();
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -49,7 +54,7 @@ public class ClientViewController implements Initializable {
 
     public void actions(){
         btnShowPlan.setOnAction(e -> {
-            List<Contrato> contratos =  contratoDAO.obtenerContratosPorUsuario(usuario.getId());
+            List<Contrato> contratos = contratoDAO.obtenerContratosPorUsuario(usuario.getId());
             contentSection.getItems().clear();
             for (Contrato contrato : contratos) {
                 contentSection.getItems().add(
@@ -61,6 +66,19 @@ public class ClientViewController implements Initializable {
                                 " | Estado: " + contrato.getEstado()
                 );
 
+            }
+        });
+        btnShowFacturas.setOnAction(e -> {
+            List<Factura> facturas = facturaDAO.obtenerFacturasPorUsuario(usuario.getId());
+            contentSection.getItems().clear();
+            for (Factura factura : facturas) {
+                contentSection.getItems().add(
+                        "Factura #" + factura.getNumeroFactura() +
+                                " | Emitida: " + factura.getFechaEmision() +
+                                " | Vence: " + factura.getFechaVencimiento() +
+                                " | Importe: " + factura.getImporte() + "€" +
+                                " | Estado: " + factura.getEstadoPago()
+                );
             }
         });
 
