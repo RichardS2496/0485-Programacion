@@ -1,17 +1,24 @@
 package org.example.shieldsecuritygestor.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import org.example.shieldsecuritygestor.dao.ContratoDAO;
 import org.example.shieldsecuritygestor.dao.FacturaDAO;
+import org.example.shieldsecuritygestor.dao.IncidenciaDAO;
+
 
 import org.example.shieldsecuritygestor.model.Contrato;
 import org.example.shieldsecuritygestor.model.Factura;
+import org.example.shieldsecuritygestor.model.Incidencia;
 import org.example.shieldsecuritygestor.model.usuario.Usuario;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -40,6 +47,8 @@ public class ClientViewController implements Initializable {
     private Usuario usuario;
     private ContratoDAO contratoDAO = new ContratoDAO();
     private FacturaDAO facturaDAO = new FacturaDAO();
+    private IncidenciaDAO incidenciaDAO = new IncidenciaDAO();
+
 
 
     @Override
@@ -81,7 +90,29 @@ public class ClientViewController implements Initializable {
                 );
             }
         });
+        btnShowIncidencias.setOnAction(e -> {
+            List<Incidencia> incidencias = incidenciaDAO.obtenerIncidenciasPorUsuario(usuario.getId());
+            contentSection.getItems().clear();
+            for (Incidencia i : incidencias) {
+                contentSection.getItems().add(
+                        "Incidencia #" + i.getIdIncidencia() + " | " + i.getTitulo() + " | Severidad: " + i.getSeveridad() + " | Estado: " + i.getEstado()
+                );
+            }
+        });
+        btnLogout.setOnAction(e ->{
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/shieldsecuritygestor/login-view.fxml"));
+                Stage loginStage = new Stage();
+                loginStage.setTitle("ShieldSecurity | Panel Administrativo");
+                loginStage.setScene(new Scene(loader.load()));
+                loginStage.show();
+                ((Stage) btnLogout.getScene().getWindow()).close();
+            } catch (IOException e2) {
+                System.out.println("Error al cerrar sesión: " +
+                        e2.getMessage());
+            }
 
+        });
     }
 
 
