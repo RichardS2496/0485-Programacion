@@ -4,20 +4,18 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.example.shieldsecuritygestor.dao.LoginDAO;
 import org.example.shieldsecuritygestor.model.usuario.Usuario;
-import org.example.shieldsecuritygestor.model.usuario.ClienteUsuario;
-import org.example.shieldsecuritygestor.model.usuario.Administrador;
-import org.example.shieldsecuritygestor.model.usuario.Master;
+
 
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.ResourceBundle;
 
 
@@ -96,7 +94,10 @@ public void actions(){
 
 
             } else {
-                System.out.println("Datos incorrectos");
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setHeaderText("Usuario no encontrado");
+                alert.setContentText("Compruebe credenciales o contacte con su administrador");
+                alert.show();
             }
 
 
