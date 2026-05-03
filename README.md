@@ -108,3 +108,6 @@ Toda la persistencia de datos se gestiona mediante **JDBC** conectado a una base
 - JDBC con MariaDB Connector
 - Lombok
 - Maven
+
+## PARA CONOCER EL PROYECTO DE HTML + CSS
+https://github.com/RichardS2496/intermodular-richard-suarez-daw.git
