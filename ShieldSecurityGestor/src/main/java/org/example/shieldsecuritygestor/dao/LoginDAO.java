@@ -21,7 +21,7 @@ public class LoginDAO {
 
     public static Usuario login(String user, String password){
 
-        String query = "SELECT id_usuario, nombre_usuario, id_rol FROM usuario WHERE email=? AND password=?";
+        String query = "SELECT id_usuario, nombre_usuario, id_rol, activo FROM usuario WHERE email=? AND password=? AND activo=1";
 
         try {
             PreparedStatement ps = connection.prepareStatement(query);

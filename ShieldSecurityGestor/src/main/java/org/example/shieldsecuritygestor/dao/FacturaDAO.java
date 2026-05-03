@@ -47,4 +47,32 @@ public class FacturaDAO {
 
         return facturas;
     }
+
+    public List<Factura> obtenerTodasFacturas() {
+        List<Factura> facturas = new ArrayList<>();
+
+        String query = "SELECT c.id_usuario, u.nombre_usuario, f.numero_factura, f.fecha_emision, f.fecha_vencimiento, f.importe, f.estado_pago FROM factura f JOIN contrato c ON f.id_contrato = c.id_contrato JOIN usuario u ON c.id_usuario = u.id_usuario";
+
+        try {
+            PreparedStatement ps = connection.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Factura factura = new Factura();
+                factura.setNumeroFactura(rs.getString("numero_factura"));
+                factura.setFechaEmision(rs.getString("fecha_emision"));
+                factura.setFechaVencimiento(rs.getString("fecha_vencimiento"));
+                factura.setImporte(rs.getDouble("importe"));
+                factura.setEstadoPago(rs.getString("estado_pago"));
+                facturas.add(factura);
+            }
+
+
+        } catch (SQLException e) {
+            System.out.println("Error al obtener contratos: "
+                    + e.getMessage());
+        }
+
+        return facturas;
+    }
 }

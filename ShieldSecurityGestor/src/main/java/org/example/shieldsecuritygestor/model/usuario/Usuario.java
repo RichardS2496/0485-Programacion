@@ -13,7 +13,8 @@ import lombok.Setter;
 public abstract class Usuario {
 
     private int id;
-    private String nombre, apellido, correo, password;
+    private String nombre, apellido, correo, password, telefono;
+    private boolean activo;
 //    private int edad;
 
     public abstract String getPerfil();

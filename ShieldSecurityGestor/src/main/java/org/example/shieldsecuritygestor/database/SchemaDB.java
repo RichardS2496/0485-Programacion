@@ -14,6 +14,7 @@ public interface SchemaDB {
     String COL_APELLIDO_USUARIO = "apellido_usuario";
     String COL_EMAIL="email";
     String COL_PASSWORD = "password";
+    String COL_PHONE="telefono";
     String COL_CIF = "cif";
     String COL_NOMBRE_EMPRESA="nombre_empresa";
     String COL_ID_ROL = "id_rol";

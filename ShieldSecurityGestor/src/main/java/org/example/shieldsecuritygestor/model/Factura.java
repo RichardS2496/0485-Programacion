@@ -7,7 +7,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class Factura {
-
+    private int idUsuario;
+    private String nombreUsuario;
     private String numeroFactura;
     private String fechaEmision;
     private String fechaVencimiento;

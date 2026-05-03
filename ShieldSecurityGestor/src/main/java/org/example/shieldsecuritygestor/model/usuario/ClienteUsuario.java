@@ -16,8 +16,8 @@ public class ClienteUsuario extends Usuario{
     private String cif;
     private String empresa;
 
-    public ClienteUsuario(int id, String nombre, String apellido, String correo, String password, String cif, String empresa){
-        super(0, nombre, apellido, correo, password);
+    public ClienteUsuario(int id, String nombre, String apellido, String correo, String password, String telefono, boolean activo, String cif, String empresa){
+        super(id, nombre, apellido, correo, password, telefono, activo);
         this.cif=cif;
         this.empresa=empresa;
     }
